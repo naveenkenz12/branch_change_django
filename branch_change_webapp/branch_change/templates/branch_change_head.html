@@ -1,0 +1,415 @@
+
+
+{% load staticfiles %}
+<head>
+<title>Branch Change For 2015</title>
+<!-- Bootstap CSS -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+<!-- jQuery library -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<!-- Latest compiled JavaScript -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Input Validation Java Script -->
+
+<!-- Dynamic prefernce -->
+<script src= "{% static 'js/dynamicadd.js' %}"></script>
+
+<script src = "{% static 'css/bootstrapvalidator.css' %}"> </script>
+<script src = "{% static 'js/bootstrapvalidator.js' %}" > </script>
+
+<script type="text/javascript">
+    var mm={{user.username}}
+
+</script>
+
+
+<script>
+
+$(document).ready(function() {
+    $('#branchForm').bootstrapValidator({
+        
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields:{
+        	roll_number:{
+        		validators:{
+        			notEmpty:{
+        				message: 'Roll No can not be empty'
+        			},
+        			stringLength:{
+        				min: 9,
+        				max: 9,
+        				message: 'Roll No should be of 9 digits'
+        			},
+        			regexp:{
+        				regexp: /^[15]{2,2}[D0-9]{1,1}[0-9]{6,6}/,
+        				message: 'Valid Roll No: 15XXXXXXX'
+        			}
+        			
+        		}
+        	},
+        	cpi:{
+        		validators:{
+        			notEmpty:{
+        				message: 'CPI must be in [0,10] only'
+        			},
+        			between:{
+        				min: 0,
+        				max: 10,
+        				message: 'CPI must be in [0,10] only'
+        			},
+        			stringLength:{
+        				min: 1,
+        				max: 5,
+        				message: 'only two digits after decimal places allowed'
+        			}
+        		}
+        	},
+        	name:{
+        		validators:{
+        			notEmpty:{
+        				message: 'name can not be empty'
+        			},
+                    regexp:{
+                        regexp: /^[a-zA-Z ]*$/,
+                        message: 'name can contain only a-z and A-Z'
+                    }
+        		}
+        	},
+        	pref1:{
+        		validators:{
+        			notEmpty:{
+        				message:'preferences can not be empty'
+        			}
+
+        		}
+        	},
+            present_branch:{
+                validators:{
+                    notEmpty:{
+                        message:'present branch cant be empty'
+                    }
+                }
+            }
+        }
+
+
+    });
+
+	 
+
+});
+
+
+
+
+</script>
+
+
+<script>
+    /*$(document).on('change',"#pref1",function(){
+            if($.trim($("#pref1").val()) == '')
+            {
+                $("#pref2").css({"display","none"});
+            }
+        });
+    });    */
+$(document).ready(function(){
+var maxpreference=16;
+var counter=1;
+var e=2;
+for(e=2;e<=16;e++){
+    if(($("#id_pref"+e).val())=='')
+    {break;}
+}
+for(var xx=e+1;xx<=16;xx++)
+{
+    $("#Pref"+xx).css("display","none");
+}
+
+
+$(document).on('change',"#id_pref1",function(){
+        if(($("#id_pref1").val())=='')
+        {
+            for(var i =2 ; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref2").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref2",function(){
+        if(($("#id_pref2").val())=='')
+        {
+            for(var i =3; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref3").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref3",function(){
+        if(($("#id_pref3").val())=='')
+        {
+            for(var i =4; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref4").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref4",function(){
+        if(($("#id_pref4").val())=='')
+        {
+            for(var i =5 ; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref5").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref5",function(){
+        if(($("#id_pref5").val())=='')
+        {
+            for(var i =6; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref6").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref6",function(){
+        if(($("#id_pref6").val())=='')
+        {
+            for(var i =7; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref7").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref7",function(){
+        if(($("#id_pref7").val())=='')
+        {
+            for(var i =8; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref8").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref8",function(){
+        if(($("#id_pref8").val())=='')
+        {
+            for(var i =9; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref9").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref9",function(){
+        if(($("#id_pref9").val())=='')
+        {
+            for(var i =10; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref10").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref10",function(){
+        if(($("#id_pref10").val())=='')
+        {
+            for(var i =11; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref11").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref11",function(){
+        if(($("#id_pref11").val())=='')
+        {
+            for(var i =12 ; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref12").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref12",function(){
+        if(($("#id_pref12").val())=='')
+        {
+            for(var i =13 ; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref13").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref13",function(){
+        if(($("#id_pref13").val())=='')
+        {
+            for(var i =14 ; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref14").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref14",function(){
+        if(($("#id_pref14").val())=='')
+        {
+            for(var i =15; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref15").css("display","block");
+}
+});
+
+$(document).on('change',"#id_pref15",function(){
+        if(($("#id_pref15").val())=='')
+        {
+            for(var i =16 ; i<=16;i++)
+            {
+                var t = i.toString();
+                $("#id_pref" + t).val('');
+                $("#Pref"+t).css("display","none");
+
+            }
+        
+    }
+
+else{
+    $("#Pref16").css("display","block");
+}
+});
+
+
+
+
+});
+
+
+
+
+</script>
+
+
+</head>

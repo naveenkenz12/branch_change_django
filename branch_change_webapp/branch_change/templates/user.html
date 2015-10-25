@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% include 'branch_change_head.html' %}
+
+
+<body>
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                
+      </button>
+      <a class="navbar-brand">Branch Change For 2015</a>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+
+<li><a href="/branch_change_form"><span class="glyphicon glyphicon-left-arrow"></span> Back To Form</a></li>
+
+<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+<div style="margin:5%">
+Username : {{ user.username }}<br>
+Roll Number : {{ queryset.roll_number }}<br>
+Name : {{ queryset.name }}<br>
+Category : {{ queryset.category }}<br>
+CPI: {{ queryset.cpi }}<br>
+Present branch : {{ queryset.present_branch }}<br>
+<br>
+Preference 1  : {{ queryset.pref1 }}<br>
+Preference 2  : {{ queryset.pref2 }}<br>
+Preference 3  : {{ queryset.pref3 }}<br>
+Preference 4  : {{ queryset.pref4 }}<br>
+Preference 5  : {{ queryset.pref5 }}<br>
+Preference 6  : {{ queryset.pref6 }}<br>
+Preference 7  : {{ queryset.pref7 }}<br>
+Preference 8  : {{ queryset.pref8 }}<br>
+Preference 9  : {{ queryset.pref9 }}<br>
+Preference 10 : {{ queryset.pref10 }}<br>
+Preference 11 : {{ queryset.pref11 }}<br>
+Preference 12 : {{ queryset.pref12 }}<br>
+Preference 13 : {{ queryset.pref13 }}<br>
+Preference 14 : {{ queryset.pref14 }}<br>
+Preference 15 : {{ queryset.pref15 }}<br>
+Preference 16 : {{ queryset.pref16 }}<br>
+</div>
+
+
+</body>
+</html>
