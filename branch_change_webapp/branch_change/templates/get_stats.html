@@ -1,0 +1,94 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% include 'branch_change_head.html' %}
+<style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th  {
+    background-color: black;
+    color: white;
+}
+</style>
+
+
+<body>
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                
+      </button>
+      <a class="navbar-brand">Branch Change '15 Administration Statastics</a>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+
+<li><a href="/admin"><span class="glyphicon glyphicon-left-arrow"></span> Admin</a></li>
+
+
+
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+
+{% if queryset %}
+            
+
+
+<table>
+  <tr>
+    <th>Branch Name</th>
+    <th>Cutoff CPI</th>    
+    <th>Sanctioned Strength</th>
+    <th>Original Strength</th>
+    <th>Final Strength</th>
+  </tr>
+ 
+  {% for x in queryset %}
+  <tr>
+  <th>{{ x.branch_name }}</th>
+  <th>{{ x.cutoff }}</th>
+  <th>{{ x.sanctioned_st }}</th>
+  <th>{{ x.original_st }}</th>
+  <th>{{ x.final_st }}</th>
+  {% endfor %}
+
+</table>
+
+ {% endif %}
+
+
+ &copy /inficoders\
+</body>
+</html>
+
+

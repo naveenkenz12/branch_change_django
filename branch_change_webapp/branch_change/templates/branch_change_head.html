@@ -79,21 +79,152 @@ $(document).ready(function() {
                     }
         		}
         	},
-        	pref1:{
-        		validators:{
-        			notEmpty:{
-        				message:'preferences can not be empty'
-        			}
-
-        		}
-        	},
             present_branch:{
                 validators:{
                     notEmpty:{
                         message:'present branch cant be empty'
                     }
                 }
+            },
+            pref1:{
+                validators:{
+                    notEmpty:{
+                        message:'preference 1 can not be empty'
+                    },
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref2:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref3:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref4:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref5:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref6:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref7:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref8:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref9:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref10:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref11:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref12:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref13:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref14:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
+            },
+            pref15:{
+                validators:{
+                    different:{
+                        field:'present_branch',
+                        message: 'present branch and prefernce must be different'
+                    }
+
+                }
             }
+            
         }
 
 
@@ -118,14 +249,14 @@ $(document).ready(function() {
         });
     });    */
 $(document).ready(function(){
-var maxpreference=16;
+var maxpreference=15;
 var counter=1;
 var e=2;
-for(e=2;e<=16;e++){
+for(e=2;e<=15;e++){
     if(($("#id_pref"+e).val())=='')
     {break;}
 }
-for(var xx=e+1;xx<=16;xx++)
+for(var xx=e+1;xx<=15;xx++)
 {
     $("#Pref"+xx).css("display","none");
 }
@@ -134,11 +265,11 @@ for(var xx=e+1;xx<=16;xx++)
 $(document).on('change',"#id_pref1",function(){
         if(($("#id_pref1").val())=='')
         {
-            for(var i =2 ; i<=16;i++)
+            for(var i =2 ; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
-                $("#Pref"+t).css("display","none");
+                 $("#Pref"+t).css("display","none");
 
             }
         
@@ -152,7 +283,7 @@ else{
 $(document).on('change',"#id_pref2",function(){
         if(($("#id_pref2").val())=='')
         {
-            for(var i =3; i<=16;i++)
+            for(var i =3; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -170,7 +301,7 @@ else{
 $(document).on('change',"#id_pref3",function(){
         if(($("#id_pref3").val())=='')
         {
-            for(var i =4; i<=16;i++)
+            for(var i =4; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -188,7 +319,7 @@ else{
 $(document).on('change',"#id_pref4",function(){
         if(($("#id_pref4").val())=='')
         {
-            for(var i =5 ; i<=16;i++)
+            for(var i =5 ; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -206,7 +337,7 @@ else{
 $(document).on('change',"#id_pref5",function(){
         if(($("#id_pref5").val())=='')
         {
-            for(var i =6; i<=16;i++)
+            for(var i =6; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -224,7 +355,7 @@ else{
 $(document).on('change',"#id_pref6",function(){
         if(($("#id_pref6").val())=='')
         {
-            for(var i =7; i<=16;i++)
+            for(var i =7; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -242,7 +373,7 @@ else{
 $(document).on('change',"#id_pref7",function(){
         if(($("#id_pref7").val())=='')
         {
-            for(var i =8; i<=16;i++)
+            for(var i =8; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -260,7 +391,7 @@ else{
 $(document).on('change',"#id_pref8",function(){
         if(($("#id_pref8").val())=='')
         {
-            for(var i =9; i<=16;i++)
+            for(var i =9; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -278,7 +409,7 @@ else{
 $(document).on('change',"#id_pref9",function(){
         if(($("#id_pref9").val())=='')
         {
-            for(var i =10; i<=16;i++)
+            for(var i =10; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -296,7 +427,7 @@ else{
 $(document).on('change',"#id_pref10",function(){
         if(($("#id_pref10").val())=='')
         {
-            for(var i =11; i<=16;i++)
+            for(var i =11; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -314,7 +445,7 @@ else{
 $(document).on('change',"#id_pref11",function(){
         if(($("#id_pref11").val())=='')
         {
-            for(var i =12 ; i<=16;i++)
+            for(var i =12 ; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -332,7 +463,7 @@ else{
 $(document).on('change',"#id_pref12",function(){
         if(($("#id_pref12").val())=='')
         {
-            for(var i =13 ; i<=16;i++)
+            for(var i =13 ; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -350,7 +481,7 @@ else{
 $(document).on('change',"#id_pref13",function(){
         if(($("#id_pref13").val())=='')
         {
-            for(var i =14 ; i<=16;i++)
+            for(var i =14 ; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -368,7 +499,7 @@ else{
 $(document).on('change',"#id_pref14",function(){
         if(($("#id_pref14").val())=='')
         {
-            for(var i =15; i<=16;i++)
+            for(var i =15; i<=15;i++)
             {
                 var t = i.toString();
                 $("#id_pref" + t).val('');
@@ -383,23 +514,7 @@ else{
 }
 });
 
-$(document).on('change',"#id_pref15",function(){
-        if(($("#id_pref15").val())=='')
-        {
-            for(var i =16 ; i<=16;i++)
-            {
-                var t = i.toString();
-                $("#id_pref" + t).val('');
-                $("#Pref"+t).css("display","none");
 
-            }
-        
-    }
-
-else{
-    $("#Pref16").css("display","block");
-}
-});
 
 
 
@@ -411,5 +526,23 @@ else{
 
 </script>
 
+
+<script>
+    
+$(document).ready(function(){
+    $("#id_cpi").change(function(){
+        if(($("#id_category").val())=='GE' || ($("#id_category").val())=='OBC'){
+        if(($("#id_cpi").val())<8){
+        alert("Your CPI is less than 8 and you might not get a branch change");}
+}
+    else{
+        if(($("#id_cpi").val())<7){
+        alert("Your CPI is less than 7 and you might not get a branch change");}
+}
+    });
+});
+
+
+</script>
 
 </head>

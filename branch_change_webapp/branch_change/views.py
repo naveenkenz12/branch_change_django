@@ -15,23 +15,66 @@ from django.template import RequestContext
 from branch_change.forms import userpostform
 from django.contrib.auth.forms import UserCreationForm
 from branch_change.models import userpost
-import csv
 
+from branch_change.models import branch_stats
+from branch_change.models import allocated_branch
+
+import csv
+import os
+# from rest_framework.renderers import JSONRenderer
+# from rest_framework.response import Response
+# from rest_framework.views import APIView
+
+def get_allocation(request):
+	if not request.user.is_staff:
+		raise PermissionDenied
+	import subprocess
+	#os.system("python3 ./export.csv ./input_programmes")
+	subprocess.call("pwd",shell=True)
+	subprocess.call("./main.sh",shell=True)
+	subprocess.call("cd ..",shell=True)
+	subprocess.call("pwd",shell=True)
+	data = []
+	with open('./branch_change/output.csv','r') as csvfile :
+		reader = csv.reader(csvfile,delimiter = ',')
+		for line in reader:
+			input_data = allocated_branch()
+			input_data.roll_number = line[0]
+			input_data.name = line[1]
+			input_data.initial_branch = line[2]
+			input_data.alloted_branch = line[3]
+			input_data.save()
+	with open('./branch_change/output_stats.csv') as csvfile:
+		reader = csv.reader(csvfile,delimiter = ',')
+		for line in reader:
+			input_data = branch_stats()
+			input_data.branch_name = line[0]
+			input_data.cutoff = line[1]
+			input_data.sanctioned_st = line[2]
+			input_data.original_st = line[3]
+			input_data.final_st = line[4]
+			input_data.save()
+	return HttpResponseRedirect('/admin')
+
+
+# def get_allocation(request):
+# 	data = '<html><body><h1>Hello, world</h1></body></html>'
+# 	return Response(data)
 
 def save_csv(request):
 	if not request.user.is_staff:
 		raise PermissionDenied
 	data = []
-	with open('./branch_change/import.csv','r') as csvfile :
+	with open('./branch_change/input_options.csv','r') as csvfile :
 		reader = csv.reader(csvfile,delimiter = ',')
 		for line in reader:
 			input_data = userpost()
-			input_data.user_name = '@'+line[0]
+			input_data.user_name = '@'+line[0]+'__'
 			input_data.roll_number = line[0]
 			input_data.name = line[1]
 			input_data.present_branch = line[2] 
-			input_data.category = line[3]
-			input_data.cpi = line[4]
+			input_data.category = line[4]
+			input_data.cpi = line[3]
 			input_data.pref1 = line[5]
 			input_data.pref2 = line[6]
 			input_data.pref3 = line[7]
@@ -47,7 +90,6 @@ def save_csv(request):
 			input_data.pref13 = line[17]
 			input_data.pref14 = line[18]
 			input_data.pref15 = line[19]
-			input_data.pref16 = line[20]
 			input_data.save()
 	return HttpResponseRedirect('/admin')
 
@@ -116,7 +158,7 @@ def branch_change_form(request):
             print(form.errors)
     else:
         try:
-        	form = userpostform(initial = {'user_name':queryset.user_name,'roll_number' : queryset.roll_number , 'name' : queryset.name, 'cpi': queryset.cpi, 'present_branch' : queryset.present_branch, 'category': queryset.category, 'pref1': queryset.pref1, 'pref2': queryset.pref2, 'pref3': queryset.pref3, 'pref4': queryset.pref4, 'pref5': queryset.pref5, 'pref6': queryset.pref6, 'pref7': queryset.pref7, 'pref8': queryset.pref8, 'pref9': queryset.pref9, 'pref10': queryset.pref10, 'pref11': queryset.pref11, 'pref12': queryset.pref12, 'pref13': queryset.pref13, 'pref14': queryset.pref14, 'pref15': queryset.pref15, 'pref16': queryset.pref16 })
+        	form = userpostform(initial = {'user_name':queryset.user_name,'roll_number' : queryset.roll_number , 'name' : queryset.name, 'cpi': queryset.cpi, 'present_branch' : queryset.present_branch, 'category': queryset.category, 'pref1': queryset.pref1, 'pref2': queryset.pref2, 'pref3': queryset.pref3, 'pref4': queryset.pref4, 'pref5': queryset.pref5, 'pref6': queryset.pref6, 'pref7': queryset.pref7, 'pref8': queryset.pref8, 'pref9': queryset.pref9, 'pref10': queryset.pref10, 'pref11': queryset.pref11, 'pref12': queryset.pref12, 'pref13': queryset.pref13, 'pref14': queryset.pref14, 'pref15': queryset.pref15 })
         except:
         	form = userpostform(initial = {'user_name':request.user.username })
     context = {
@@ -176,3 +218,28 @@ def naveen(request):
     	'queryset' :queryset
     }
 	return render(request, 'user.html', context)
+
+def see_allocation(request):
+	if not request.user.is_staff:
+		raise PermissionDenied
+	try:
+		queryset = allocated_branch.objects.all()
+	except:
+		queryset = None
+	context = {
+		'queryset' :queryset
+		}
+	return render(request, 'get_allocation.html' , context)
+
+
+def see_stats(request):
+	if not request.user.is_staff:
+		raise PermissionDenied
+	try:
+		queryset = branch_stats.objects.all()
+	except:
+		queryset = None
+	context = {
+		'queryset' :queryset
+		}
+	return render(request, 'get_stats.html' , context)

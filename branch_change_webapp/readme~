@@ -1,0 +1,126 @@
+Lab 11 Outlab
+Django Branch Change Webapp Project
+Group 19
+(inficoders)
+
+
+Group Members:
+Naaveen Kumar , 140050013 , contribution = 100%
+Yathansh Kathuria , 140050021 , contribution = 100%
+Rajat Chaturvedi , 140050027 , contribution =100%
+
+
+Instrucions for running the webapp:
+
+1. Ensure to have Django installed in the system (version 1.8.5).
+	pip3 install Django==1.8.5
+
+2. Ensure to have installed bootstrap and also python3.
+
+3. cd into the directory containing the project "branch_change_webapp"
+
+4. run the command written below one by one.
+	python3 manage.py makemigrations
+	python3 manage.py migrate
+	python3 manage.py syncdb
+	python3 manage.py runserver
+
+5. create a super user using the following command 
+	python3 manage.py createsuperuser
+
+	superuser will be needed for admin page access.
+
+6. open the browser and access by:
+	127.0.0.1:8000
+
+7. Access the admin page by:
+	127.0.0.1:8000/admin
+
+8. both the admin and user page has a navigation bar which contains more link.
+
+
+Running admin site:
+
+uploading test cases directly from a csv file:
+1. go to 127.0.0.1:8000/admin
+
+2. delete all the userposts,branch_stats, and allocated_branch from the admin page whenever uploading a new test case.
+	not deleting the above will append the new data to already present data and the final result will be based on total test cases.
+
+3. rename the test case as "input_options.csv" and put in the project folder "branch_change_project/branch_change"
+
+4. put the "input_programmes.csv" file in the project folder "branch_change_webapp/branch_change" which contains the names and strngths of the different branches.The one given alredy in resources is present there.
+
+5. go to admin site and click on "import csv" option on the navigation bar to import the data from csv file to database.
+
+6. then click on "download csv" option in the navigation bar on the admin page which creates the formatted csv for the main program.
+
+7. click on "allocation results" option on the navigation bar of the webpage to see the allocation results.
+
+8. the stats of allocation is available in a file "output_stats.csv" in thge project folder "branch_change_project/branch_change" and the result is present  in a file "output.csv" in the project folder "branch_change_project/branch_change". 
+
+9. To see the allocation online on the webpage click on "see allocation" button.
+
+10. to see the stats online in the webpage click on "see stats" button.
+
+
+
+
+
+Honour Code : 
+I pledge on my honour that I have not given or received any unauthorized assistance on this assignment or any previous assignments.
+	Naveen Kumar(140050013)
+
+I pledge on my honour that I have not given or received any unauthorized assistance on this assignment or any previous task.
+	yathansh kathuria(140050021)
+
+I pledge on my honour that I have not given or received any unauthorized assistance on this assignment or any previous task.
+	rajat chaturvedi(140050027)
+
+
+
+Citations:
+
+1. https://bootstrapbay.com/blog/install-twitter-bootstrap/
+2. https://www.djangoproject.com/download/
+3. https://docs.djangoproject.com/en/1.8/topics/forms/
+4. http://www.w3schools.com
+5. http://www.tangowithdjango.com/book/chapters/models_templates.html
+6. http://stackoverflow.com/questions/2799443/is-there-a-way-to-render-a-html-page-without-view-model
+7. http://stackoverflow.com/questions/12278753/clean-method-in-model-and-field-validation
+8. http://eli.thegreenplace.net/2014/02/20/clearing-the-database-with-django-commands
+9. http://stackoverflow.com/questions/3974620/import-csv-data-into-database-in-django-admin
+10. http://stackoverflow.com/questions/4072574/generating-csv-file-with-django-dynamic-content
+11. http://www.experts-exchange.com/Web_Development/Web_Languages-Standards/HTML/Q_28506804.html
+12. http://www.codeproject.com/Questions/424303/how-to-write-the-user-inputted-values-into-the-scv
+13. https://django-csv-importer.readthedocs.org/en/latest/
+14. https://docs.djangoproject.com/en/1.8/topics/http/file-uploads/
+15. http://www.christianschenk.org/blog/html-select-dropdown-download-files/
+16. http://formvalidation.io/validators
+17. https://codingforentrepreneurs.com/projects/try-django-18/template-configuration/
+18. https://github.com/wq/wq.db/issues/48
+19. http://stackoverflow.com/questions/28091924/django-admin-change-header-django-administration-text-on-nginx
+20. https://www.youtube.com/watch?v=iA918NEFZxs&index=7&list=PLxxA5z-8B2xk4szCgFmgonNcCboyNneMD
+21. Mike Hillbert django tutorial at youtube.com
+22. http://www.stavros.io/posts/adding-login-user-button-django-admin-interface/
+23. http://www.pabloleanomartinet.com/adding-custom-admin-pages-django/
+24. https://cal-linux.com/tutorials/strings.html
+25. https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/base.html
+26. tutorialspoint.com/python
+27. progzoo.net
+28. mail.python.org
+29. docs.python.org
+30. http://www.matthieuamiguet.ch/blog/previous-and-next-buttons-django-admin
+31. https://djangosnippets.org/snippets/1016/
+32. http://skillcrush.com/2013/02/15/wildly-easy-django-csv-imports/
+33. http://www.regexr.com/
+34. http://www.regular-expressions.info/tutorial.html
+35. http://getbootstrap.com/
+36. piazza.com
+37. https://docs.python.org/2/library/csv.html
+
+
+Thanks to the instructor and the TAs for guidance.
+
+
+
